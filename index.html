@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Mistress-Vita | Private Application</title>
+<meta name="description" content="Submit a private application to Mistress Vita. Serious, discreet applicants only. Exclusive consideration for those who qualify.">
+<meta name="theme-color" content="#000000"/>
+<link rel="icon" href="#"/>
+
+<style>
+:root{
+  --bg:#000;
+  --text:#f6f4f2;
+  --accent:#8b0000;
+  --muted:#bfb9b8;
+  --glass: rgba(255,255,255,0.04);
+  --max-width:1100px;
+  --accent-2:#b08a8a;
+  --radius:8px;
+  --transition:200ms ease;
+  --serif:'Georgia', 'Times New Roman', serif;
+  --sans:'Helvetica Neue', Arial, sans-serif;
+}
+
+*{box-sizing:border-box;}
+
+html,body{height:100%;}
+
+body{
+  margin:0;
+  background:linear-gradient(180deg,#000000 0%, #0a0a0a 100%);
+  color:var(--text);
+  font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding-bottom:40px;
+}
+
+a{color:var(--accent); text-decoration:none;}
+a:hover{color:var(--text);}
+
+img{max-width:100%; display:block;}
+
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:28px;
+}
+
+header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  margin-bottom:28px;
+}
+
+.logo{display:flex; align-items:center; gap:12px;}
+
+.site-title{
+  font-family:var(--serif);
+  font-size:20px;
+  letter-spacing:1px;
+}
+
+nav{display:flex; gap:14px; align-items:center;}
+
+.hero{
+  display:grid;
+  grid-template-columns:1fr 380px;
+  gap:28px;
+  align-items:center;
+  margin-bottom:28px;
+}
+
+.hero-left h1{
+  font-family:var(--serif);
+  font-size:40px;
+  margin:0;
+}
+
+.hero-left p.lead{
+  color:var(--muted);
+  margin:18px 0;
+  max-width:62ch;
+}
+
+.cta-row{display:flex; gap:12px;}
+
+.btn{
+  background:var(--accent);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:6px;
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.btn.secondary{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--muted);
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:18px;
+  border-radius:10px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+
+.hero-right .portrait{
+  height:100%;
+  background:#110101;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+section{margin:28px 0;}
+
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:18px;
+}
+
+.grid-2{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:18px;
+}
+
+h2{
+  font-family:var(--serif);
+  margin:12px 0;
+  font-size:22px;
+}
+
+h3{margin:10px 0; font-size:18px;}
+
+p{margin:12px 0;}
+
+.tribute-list{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.tribute{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px;
+  border-radius:8px;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+.tribute .meta{max-width:68%;}
+
+.price{
+  font-weight:700;
+  color:var(--accent);
+  font-size:18px;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap:10px;
+}
+
+.gallery figure{
+  margin:0;
+  border-radius:6px;
+  overflow:hidden;
+  background:#0d0d0d;
+}
+
+figure figcaption{
+  padding:10px;
+  font-size:13px;
+  color:var(--muted);
+  background:rgba(0,0,0,0.45);
+}
+
+form{display:grid; gap:10px;}
+
+input[type=text],
+input[type=email],
+select,
+textarea{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--text);
+  padding:10px;
+  border-radius:6px;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.small-muted{
+  font-size:13px;
+  color:var(--muted);
+}
+
+footer{
+  margin-top:36px;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.socials{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+.socials a{
+  display:inline-block;
+  padding:8px;
+  border-radius:6px;
+  background:rgba(255,255,255,0.02);
+  color:var(--muted);
+}
+
+/* OATH FIELDSET — RESPONSIVE & CLEAN */
+fieldset.oath-swearing{
+  font-family: Cambria, Georgia, serif;
+  font-size:13px;
+  font-weight:300;
+  box-sizing:border-box;
+  width:100%;
+  max-width:100%;
+  border:4px solid var(--accent);
+  border-radius:20px;
+  padding:16px;
+  line-height:1.6;
+}
+
+/* MOBILE TWEAKS */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(2,1fr);}
+  .grid-2{grid-template-columns:1fr;}
+}
+
+@media(max-width:560px){
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .gallery{grid-template-columns:1fr;}
+  fieldset.oath-swearing{
+    border-width:3px;
+    padding:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+<div class="logo">
+<div aria-hidden="true" style="width:56px;height:56px;">
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
+<rect width="120" height="120" rx="16" fill="#000000"/>
+<path d="M60 20 L74 40 L60 60 L46 40 Z" fill="#8b0000" opacity="0.98"/>
+<circle cx="60" cy="80" r="18" fill="#000000" stroke="#8b0000" stroke-width="4"/>
+<text x="60" y="87" font-family="Georgia, serif" font-size="14" text-anchor="middle" fill="#b08a8a">V</text>
+</svg>
+</div>
+<div>
+<div class="site-title">Mistress Vita</div>
+<div class="small-muted" style="font-size:13px">Elegant Discipline • Formal Obedience</div>
+</div>
+</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#apply">Apply</a>
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-left">
+<h1>Mistress Vita</h1>
+<p class="lead">Cold authority. Elegant control. I guide submissives through disciplined structure and refined ritual. Consent, clarity, and consequence are the foundation.</p>
+<div class="cta-row">
+<a class="btn" href="#apply">Apply for Training</a>
+</div>
+<div style="margin-top:16px; color:var(--muted); font-size:14px;">
+<strong>Tone:</strong> Strict • Cold & Dominant • Seductive (PG).<br/>
+<strong>Socials:</strong> Twitter
+</div>
+</div>
+
+<aside class="hero-right card">
+<div class="portrait" style="min-height:300px;">
+<img src="image/IMG_20231101_111214_341.jpg" alt="vita" style="width:100%; height:100%; object-fit:cover;">
+</div>
+</aside>
+</section>
+
+<section id="about" class="card">
+<h2>About Mistress Vita</h2>
+<p><strong>Elegant. Cold. Unwavering.</strong> Mistress Vita offers structured lifestyle guidance and disciplined training within consensual power-exchange dynamics. Her approach is psychological, ritualized, and strictly results-driven: posture, protocol, obedience, and refinement. She accepts those who are serious, disciplined, and committed to growth.<br>I am - strict, demanding, and unapologetically in control. This form is the first step toward proving your worth to me.
+I value honesty, respect, and complete obedience. Everything you share here will remain private and will shape how I choose to train, guide,
+and own you.
+</p>
+</section>
+
+<section id="gallery">
+    <img src="image/IMG_1976.gif" alt="gif">
+</section>
+
+<section id="apply" class="card">
+<h2>Apply for Training</h2>
+
+<p class="small-muted">
+This registration is a formal request for consideration.
+Only serious, disciplined applicants should proceed.
+</p>
+
+<form id="application-form"
+action="https://formspree.io/f/mandgvkp"
+method="POST"
+onsubmit="submitWithWhatsApp(event)">
+
+<!-- Hidden fields for Slave Code -->
+<input type="hidden" name="slave_code" id="slave_code">
+<input type="hidden" name="designation" id="designation">
+
+<label>
+  <div class="small-muted">Name / Alias</div>
+  <input type="text" name="name" id="field_name" required>
+</label>
+
+<label>
+  <div class="small-muted">Email</div>
+  <input type="email" name="email" id="field_email" required>
+</label>
+
+<label>
+  <div class="small-muted">Date of Birth</div>
+  <input type="date" name="dob" required>
+</label>
+
+<label>
+  <div class="small-muted">Age Declaration</div>
+  <input type="text"
+         name="age_declaration"
+         placeholder="I am over 18 and legally able to consent"
+         required>
+</label>
+
+<label>
+  <div class="small-muted">Experience Level</div>
+  <select name="level" id="field_level" required>
+    <option>Beginner</option>
+    <option>Intermediate</option>
+    <option>Experienced</option>
+  </select>
+</label>
+
+<fieldset>
+  <legend class="small-muted">Registration Tribute</legend>
+
+<div class="tribute card">
+  <div class="meta">
+    <strong>$50 — Initial Energy Exchange</strong>
+    <div class="small-muted">
+      An offering to introduce your energy into mine.
+    </div>
+  </div>
+  <div class="tribute_50">$50</div>
+  <input type="radio" name="tribute" id="tribute_50" value="$50 - Initial Energy Exchange" required>
+</div>
+
+<div class="tribute card">
+  <div class="meta">
+    <strong>$150 — Elevated Energy Exchange</strong>
+    <div class="small-muted">
+      An offering that says your presence matters.
+    </div>
+  </div>
+  <div class="tribute_150">$150</div>
+   <input type="radio" name="tribute" id="tribute_150" value="$150 - Elevated Energy Exchange">
+</div>
+
+</fieldset>
+
+<label>
+  <div class="small-muted">What you seek</div>
+  <select name="interest" id="field_seek" required>
+    <option>Lifestyle coaching</option>
+    <option>Virtual roleplay</option>
+    <option>Long-term obedience training</option>
+    <option>Fetish guidance</option>
+    <option>Private consultation</option>
+  </select>
+</label>
+
+<label>
+  <div class="small-muted">Why should Mistress consider you?</div>
+  <textarea name="reason" id="field_why" required></textarea>
+</label>
+
+<label>
+  <div class="small-muted">Boundaries / Hard limits</div>
+  <textarea name="limits" id="field_limits" required></textarea>
+</label>
+
+<label>
+  <div class="small-muted">Availability & Commitment</div>
+  <select name="availability" required>
+    <option>I can commit time, focus, and consistency</option>
+    <option>I am serious but balancing responsibilities</option>
+    <option>I am unsure and understand I may be declined</option>
+  </select>
+</label>
+
+<label style="display:flex; gap:6px; align-items:flex-start;">
+  <input type="checkbox" name="serious_acknowledgement" required>
+  <span class="small-muted">
+    I understand this is a structured and disciplined process.
+    I am applying seriously, not out of curiosity alone.
+  </span>
+</label>
+
+<label>
+  <div class="small-muted">Preferred Registration Tribute Method</div>
+  <select name="payment_method" required>
+    <option>PayPal</option>
+    <option>Cash App</option>
+    <option>Apple Pay</option>
+    <option>Cryptocurrency</option>
+    <option>Gift Card (Apple / Steam)</option>
+  </select>
+  <div class="small-muted" style="margin-top:4px;">
+    Payment instructions are provided privately after review.
+  </div>
+</label>
+
+<label style="display:flex; gap:6px; align-items:center;">
+  <input type="checkbox" id="field_terms" required>
+  <span class="small-muted">
+    I agree to the <a href="terms.html" target="_blank">Terms</a>
+    and <a href="privacy.html" target="_blank">Privacy Policy</a>.
+  </span>
+</label>
+
+<!--OAT s-->
+<fieldset class="oath-swearing">
+        <legend>SLAVE/SISSY OATH SWEARING</legend>
+        <p>By this oath, I swear to abide in the service of my Lord/Lady Mistress Vita.</p>
+        <p>I THE SUBMISSIVE hereby give into MISTRESS hands this Word of my Oath and Breath, and all my words and thoughts hereafter. I swear that I will place my trust in my Lord's/Lady's judgment regarding all things, but that I will not also abandon my own!</p>
+        <p>I hereby give into MISTRESS hands my will and spirit, to burn for her alone. I swear always to be honest with MISTRESS, and to behave honorably in all my dealings with her. I understand that should I act in a dishonorable manner, my Lord/Lady has the right to dismiss me from service.</p>
+        <p>I hereby give into MISTRESS hands my heart and all my needs, flowing forth without walls or defenses. I swear to value the well-being of my Lord/Lady Mistress Vita above all others on this Earth, and show this value with respect, obedience, and devotion to her happiness and ease of living.</p>
+        <p>I hereby give into MISTRESS hands my flesh, my blood, and the work of my hands at mistress disposal. I swear that I shall strive always for excellence in my service to mistress. I shall perform whatever commands she wishes with alacrity and obedience, so long as these commands do not place me in physical, legal, or ethical jeopardy, or conflict with the edicts of my Gods.</p>
+        <p>I hereby give into MISTRESS hands the responsibility and fulfillment for my own sacred path of service. I swear to honor Mistress Vita as the living sacred embodiment of She That Receives All Sacrifice, and my service to mistress as a manifestation of the Will of the Gods. I will aid mistress on her path of Sacred Mastery in any way that I can.</p>
+        <p>I THE SUBMISSIVE swear that I will abide by this oath until my Lord/Lady chooses to release me from it, or I die, or the world ends. May all the Gods witness my oath.</P>
+        <p><strong>DO you swear to this oath?</strong></p>
+        <label>
+          <input type="radio" name="oath_acceptance" value="yes" required>
+          Yes, I swear
+        </label><br>
+
+        <label>
+          <input type="radio" name="oath_acceptance" value="no">
+          No
+        </label>
+            
+  </fieldset>
+
+<div style="margin-top:10px; display:flex; gap:8px;">
+  <button type="submit" class="btn">Submit Application</button>
+  <button type="reset" class="btn secondary">Reset</button>
+</div>
+
+<div id="formResult" class="small-muted" style="margin-top:10px;"></div>
+</form>
+
+<footer>
+  <p>Welcome to my world — this form is your first step into serving me. Everything you share here stays private and will be used to guide how I train and own you.</p>
+<p>Contact me directly: <a href="mailto:mistressvitaxz@gmail.com">mistressvitaxz@gmail.com</a></p>
+<p>&copy; 2025 Mistress Vita. All rights reserved.</p>
+<p><a href="privacy.html">Privacy Policy & Disclaimer</a></p>
+<div style="text-align:center; margin-top:20px;">
+<p>Next Step: Reach me directly for tribute instructions</p>
+<a href="mailto:mistressvitaxz@gmail.com" style="margin:10px; color:brown; font-weight:bold;">📧 Email Me</a>
+<a href="https://wa.me/14064020816" style="margin:10px; color:green; font-weight:bold;">💬 WhatsApp Me</a>
+</div>
+<div class="socials">
+<a href="https://twitter.com/@MistressQueenV" target="_blank">Twitter</a>
+</div>
+</footer>
+
+</div>
+
+
+<script>
+// Generate unique Slave Code and set hidden fields
+function generateSlaveCode() {
+  const year = new Date().getFullYear();
+  const random = Math.floor(10000 + Math.random() * 90000);
+
+  const roles = [
+    { code: "DISC", text: "Disciplined Training Candidate" },
+    { code: "INIT", text: "Initiated Trainee" },
+    { code: "OBED", text: "Obedience Program Applicant" }
+  ];
+
+  const chosen = roles[Math.floor(Math.random() * roles.length)];
+
+  const slaveCode = `VITA-${chosen.code}-${year}-${random}`;
+
+  // Put values in hidden fields so Formspree receives them
+  document.getElementById("slave_code").value = slaveCode;
+  document.getElementById("designation").value = chosen.text;
+
+  return slaveCode;
+}
+
+// Handle form submission
+function submitWithWhatsApp(e) {
+  e.preventDefault(); // Stop page reload
+  const form = e.target;
+
+  // Generate Slave Code
+  const slaveCode = generateSlaveCode();
+
+  // Send form data to Formspree
+  fetch(form.action, {
+    method: "POST",
+    body: new FormData(form),
+    headers: { Accept: "application/json" }
+  })
+  .then(response => {
+    if (!response.ok) throw new Error("Form submission failed");
+
+    // Show confirmation message on the page
+    document.getElementById("formResult").innerHTML = `
+      <strong>Registration received.</strong><br><br>
+      <strong>Slave Code:</strong> ${slaveCode}<br>
+      <span class="small-muted">
+        This Slave Code Number uniquely identifies your registration within Mistress Vita’s training system.
+      </span>
+    `;
+
+    // Automatically open WhatsApp with the Slave Code in the message
+    const phone = "14064020816";
+    const msg = encodeURIComponent(
+      `My Slave Code is ${slaveCode} and I await your instructions.`
+    );
+
+    const url =`https://wa.me/${phone}?text=${msg}`;
+    window.open(url, "_blank");
+
+    // Reset the form
+    form.reset();
+  })
+  .catch(() => {
+    document.getElementById("formResult").textContent =
+      "Submission failed. Please try again.";
+  });
+}
+</script>
+
+</body>
+</html>
